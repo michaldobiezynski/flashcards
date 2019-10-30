@@ -8,8 +8,8 @@ app.get('/', (req, res) => {
     res.render('index.pug');
 });
 
-app.get('/hello', (req, res) => {
-    res.send('<h1>Hello JavaScript Develop</h1>');
+app.get('/cards', (req, res) => {
+    res.render('card.pug', {prompt: "Who is buried in Grant's tomb?"});
 });
 
 app.listen(3000, () => {
