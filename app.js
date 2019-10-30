@@ -14,6 +14,10 @@ app.get('/cards', (req, res) => {
     hint: "Think about whose tomb it is."});
 });
 
+app.get('/hello', (req, res) => {
+    res.render('hello.pug');
+})
+
 app.listen(3000, () => {
    console.log('The application is running on localhost:3000!') 
 });
