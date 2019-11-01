@@ -10,7 +10,7 @@ app.use(cookieParser());
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('index.pug');
+    res.render('index.pug', {name: req.cookies.username});
 });
 
 app.get('/cards', (req, res) => {
@@ -25,7 +25,7 @@ app.get('/hello', (req, res) => {
 
 app.post('/hello', (req, res) => {
     res.cookie('username', req.body.username);
-    res.render('hello.pug', { name: req.body.username });
+    res.redirect('/');
 });
 
 app.listen(3000, () => {
