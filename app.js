@@ -22,7 +22,7 @@ app.get('/hello', (req, res) => {
 
 app.post('/hello', (req, res) => {
 
-    res.json(req.body);
+    res.render('hello.pug');
 })
 
 app.listen(3000, () => {
