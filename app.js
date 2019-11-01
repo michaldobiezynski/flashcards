@@ -22,8 +22,8 @@ app.get('/hello', (req, res) => {
 
 app.post('/hello', (req, res) => {
 
-    res.render('hello.pug');
-})
+    res.render('hello.pug', { name: req.body.username });
+});
 
 app.listen(3000, () => {
    console.log('The application is running on localhost:3000!') 
