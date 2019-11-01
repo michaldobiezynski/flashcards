@@ -21,8 +21,8 @@ app.get('/hello', (req, res) => {
 })
 
 app.post('/hello', (req, res) => {
-    console.dir(req.body);
-    res.render('hello.pug');
+
+    res.json(req.body);
 })
 
 app.listen(3000, () => {
