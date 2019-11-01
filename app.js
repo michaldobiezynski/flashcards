@@ -10,8 +10,13 @@ app.use(cookieParser());
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    const name = req.cookies.username
-    res.render('index.pug', { name });
+    const name = req.cookies.username;
+    if(name) {
+        res.render('index.pug', { name });
+    } else {
+        res.redirect('/hello');
+    }
+
 });
 
 app.get('/cards', (req, res) => {
