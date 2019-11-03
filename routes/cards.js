@@ -10,7 +10,7 @@ router.get('/:id', (req, res) => {
     const {hint} = cards[id];
 
 
-    const templateData = {text};
+    const templateData = {id, text};
 
     if(side === 'question') {
         templateData.hint = hint;
