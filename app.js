@@ -9,6 +9,10 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
+const routes = require('./routes');
+
+app.use(routes);
+
 app.use( (req, res, next) => {
     console.log("Hello");
     next();
@@ -17,44 +21,6 @@ app.use( (req, res, next) => {
 app.use( (req, res, next) => {
     console.log("World");
     next();
-});
-
-
-
-app.get('/', (req, res) => {
-    const name = req.cookies.username;
-    if(name) {
-        res.render('index.pug', { name });
-    } else {
-        res.redirect('/hello');
-    }
-});
-
-app.get('/cards', (req, res) => {
-    // res.locals.prompt = "Who is buried in Grant's tomb?";
-    res.render('card.pug', {prompt: "Who is buried in Grant's tomb?", 
-    hint: "Think about whose tomb it is."});
-});
-
-app.get('/hello', (req, res) => {
-    const name = req.cookies.username;
-    if(name) {
-        res.redirect('/');
-    } else {
-        res.render('hello.pug');
-    }
-
-});
-
-app.post('/hello', (req, res) => {
-    res.cookie('username', req.body.username);
-    res.redirect('/');
-});
-
-app.post('/goodbye', (req, res) => {
-
-    res.clearCookie('username');
-    res.redirect('/hello');
 });
 
 app.use((req, res, next) => {
