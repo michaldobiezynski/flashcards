@@ -4,11 +4,14 @@ const { data } = require('../data/flashcardData.json');
 const { cards } = data;
 
 router.get('/:id', (req, res) => {
-    // res.locals.prompt = "Who is buried in Grant's tomb?";
-    res.render('card.pug', {
-        prompt: cards[req.params.id].question,
-        hint: cards[req.params.id].hint
-    });
+    const {side} = req.query;
+    const {id} = req.params;
+    const text = cards[id][side];
+    const {hint} = cards[id];
+
+    const templateData = {text, hint};
+
+    res.render('card.pug', templateData);
 });
 
 module.exports = router;
