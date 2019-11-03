@@ -17,7 +17,6 @@ router.get('/hello', (req, res) => {
     } else {
         res.render('hello.pug');
     }
-
 });
 
 router.post('/hello', (req, res) => {

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { data } = require('../data/flashcardData');
+const { cards } = data;
 
 router.get('/', (req, res) => {
     // res.locals.prompt = "Who is buried in Grant's tomb?";
